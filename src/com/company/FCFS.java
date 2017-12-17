@@ -7,6 +7,11 @@ import java.io.*;
 
 public class FCFS {
 
+    //constructor
+    public void FCFS() throws IOException{
+
+    }
+
     public static void main(String args[]) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
