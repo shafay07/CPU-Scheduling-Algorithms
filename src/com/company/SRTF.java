@@ -12,12 +12,16 @@ public class SRTF {
             System.out.println("Please enter the number of Processes: ");
             n = Integer.parseInt(br.readLine());
             int proc[][] = new int[n + 1][4];//proc[][0] is the AT array,[][1] - RT,[][2] - WT,[][3] - TT
+            int btime[] = new int[n+1];
+            int atime[] = new int[n+1];
             for(int i = 1; i <= n; i++)
             {
                 System.out.println("Please enter the Arrival Time for Process " + i + ": ");
                 proc[i][0] = Integer.parseInt(br.readLine());
+                atime[i] = proc[i][0];
                 System.out.println("Please enter the Burst Time for Process " + i + ": ");
                 proc[i][1] = Integer.parseInt(br.readLine());
+                btime[i] = proc[i][1];
             }
             System.out.println();
 
@@ -88,10 +92,10 @@ public class SRTF {
             System.out.println();
 
             //Printing the WT and TT for each Process
-            System.out.println("P\t WT \t TT ");
+            System.out.println("P\t AT \t BT \t WT \t TT ");
             for(int i = 1; i <= n; i++)
             {
-                System.out.printf("%d\t%2dms\t%2dms",i,proc[i][2],proc[i][3]);
+                System.out.printf("%d\t%2dms\t%2dms\t%2dms\t%2dms",i,atime[i],btime[i],proc[i][2],proc[i][3]);
                 System.out.println();
             }
 
