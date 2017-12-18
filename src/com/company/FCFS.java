@@ -19,10 +19,12 @@ public class FCFS {
         System.out.println("Please enter the number of Processes: ");
         n = Integer.parseInt(br.readLine());
         int proc[][] = new int[n + 1][4];
+        int btime[] = new int[n+1];
         for(int i = 1; i <= n; i++)
         {
             System.out.println("Please enter the Burst Time for Process " + i + ": ");
             proc[i][1] = Integer.parseInt(br.readLine());
+            btime[i] = proc[i][1];
         }
         System.out.println();
 
@@ -75,16 +77,15 @@ public class FCFS {
             //If current process has been completed we select the next process from the list
             if(proc[sel_proc][1] == 0)
                 sel_proc++;
-
         }
         System.out.println();
         System.out.println();
 
         //Printing the WT and TT for each Process
-        System.out.println("P\t WT \t TT ");
+        System.out.println("P\t Bt\t\t WT \t TT ");
         for(int i = 1; i <= n; i++)
         {
-            System.out.printf("%d\t%2dms\t%2dms",i,proc[i][2],proc[i][3]);
+            System.out.printf("%d\t%2dms\t%2dms\t%2dms",i,btime[i],proc[i][2],proc[i][3]);
             System.out.println();
         }
 
