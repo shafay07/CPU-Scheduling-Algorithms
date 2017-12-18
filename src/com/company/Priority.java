@@ -15,12 +15,14 @@ public class Priority {
             int n = sc.nextInt();
             int i;
 
-            int p[]=new int[n];
-            int bt[]=new int[n];
-            int pt[]=new int[n];
-            int wt[]=new int[n];
-            int tat[]=new int[n];
+            int p[]=new int[n];//process
+            int at[] = new int[n];//arrival time
+            int bt[]=new int[n];//burst time
+            int pt[]=new int[n];//priority time
+            int wt[]=new int[n];//wait time
+            int tat[]=new int[n];//turnaround time
             int k = 1;
+            //burst time input
             for(i=0;i<n;i++)
             {
                 System.out.println("Enter the burst time for the process " + k +":");
@@ -29,19 +31,22 @@ public class Priority {
                 k++;
             }
             k = 1;
-            for(i=0;i<n;i++) {
+            //priority time input
+            for(i=0;i<n;i++)
+            {
                 System.out.println("Enter priority time for the process " + k +":");
                 pt[i] = sc.nextInt();
                 k++;
             }
-
-            for(i=0;i<n;i++){pos=i;
-                for(int j=i+1;j<n;j++)
+            //priority checking
+            for(i=0;i<n;i++){   //current process priority time
+                pos=i;
+                for(int j=i+1;j<n;j++) //previous process priority time
                 {
-                    if(pt[j]<pt[pos])
+                    if(pt[j]<pt[pos]) //if next is lower than current
                         pos=j;
                 }
-                temp=pt[pos];
+                temp=pt[pos]; //
                 pt[pos]=pt[i];
                 pt[i]=temp;
                 temp=p[pos];
