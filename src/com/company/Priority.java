@@ -10,24 +10,30 @@ public class Priority {
     public static void main(String args[])
         {
             int pos=0,temp = 0;
-            Scanner sc=new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
             System.out.println("Enter the number of processes:");
-            int n=sc.nextInt();
+            int n = sc.nextInt();
             int i;
-            System.out.println("Enter the burst times:");
+
             int p[]=new int[n];
             int bt[]=new int[n];
             int pt[]=new int[n];
             int wt[]=new int[n];
             int tat[]=new int[n];
+            int k = 1;
             for(i=0;i<n;i++)
             {
+                System.out.println("Enter the burst time for the process " + k +":");
                 p[i]=i+1;
                 bt[i]=sc.nextInt();
+                k++;
             }
-            System.out.println("Enter priority time:");
-            for(i=0;i<n;i++)
-                pt[i]=sc.nextInt();
+            k = 1;
+            for(i=0;i<n;i++) {
+                System.out.println("Enter priority time for the process " + k +":");
+                pt[i] = sc.nextInt();
+                k++;
+            }
 
             for(i=0;i<n;i++){pos=i;
                 for(int j=i+1;j<n;j++)
