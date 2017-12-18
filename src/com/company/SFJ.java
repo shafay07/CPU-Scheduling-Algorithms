@@ -10,6 +10,7 @@ class SJF
     {
         Scanner sc=new Scanner(System.in);
         int n,BT[],WT[],TAT[];
+        float ATT = 0;
         System.out.println("Enter number of process");
         n=sc.nextInt();
         BT=new int[n+1];
@@ -51,9 +52,15 @@ class SJF
         System.out.println("PROCESS \t BT \t WT \t TAT");
         for(int i=0;i<n;i++)
             System.out.println(i+1 + "\t\t\t" + BT[i] + "\t\t" + WT[i] + "\t\t" + TAT[i]);
-        for(int j=0;j<n;j++) AWT+=WT[j];
+        for(int j=0;j<n;j++){
+            AWT+=WT[j];
+            ATT+=TAT[j];
+        }
+
         AWT=AWT/n;
+        ATT = ATT/n;
         System.out.println("***********************************************");
+        System.out.println("Avg turnaround time = " + ATT );
         System.out.println("Avg waiting time = " + AWT + "\n***********************************************");
     }
 }
