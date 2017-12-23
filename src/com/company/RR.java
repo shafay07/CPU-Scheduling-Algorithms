@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class RR {
-    public static void main(String args[]) throws IOException
+    public void RR() throws Exception
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter the Time Quantum: ");

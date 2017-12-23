@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 public class Priority {
 
-    public static void main(String args[])
+    public void Priority() throws Exception
         {
             int pos=0,temp = 0;
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter the number of processes:");
             int n = sc.nextInt();
             int i;
+            int awt = 0;
+            int att = 0;
 
             int p[]=new int[n];//process
             int at[] = new int[n];//arrival time
@@ -46,7 +48,7 @@ public class Priority {
                     if(pt[j]<pt[pos]) //if next is lower than current
                         pos=j;
                 }
-                temp=pt[pos]; //
+                temp=pt[pos];
                 pt[pos]=pt[i];
                 pt[i]=temp;
                 temp=p[pos];
@@ -69,6 +71,14 @@ public class Priority {
                 tat[i]=bt[i]+wt[i];
                 System.out.println(p[i]+"\t \t"+bt[i]+"\t \t"+pt[i]+"\t\t"+wt[i]+"\t\t"+tat[i]);
             }
+            for(i=0;i<n;i++){
+                awt = awt + wt[i];
+                att = att + tat[i];
+               }
+            awt = awt/n;
+            att = att/n;
+            System.out.println("Average waiting time = " + awt);
+            System.out.println("Average turn-around time = " + att);
         }
 }
 
